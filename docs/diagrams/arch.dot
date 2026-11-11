@@ -1,0 +1,38 @@
+digraph G {
+  rankdir=TB; newrank=true; splines=true; nodesep=0.5; ranksep=0.55;
+  graph [fontname="Helvetica", fontsize=11, pad=0.3];
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10, fillcolor="white", color="#4A5568", penwidth=1.2, margin="0.18,0.08"];
+  edge [color="#4A5568", fontname="Helvetica", fontsize=8.5, arrowsize=0.7, fontcolor="#2D3748"];
+
+  subgraph cluster_c { label="Clients"; style="rounded,dashed"; color="#A0AEC0";
+    web [label="Ops Dashboard (ReactJS)"]; mob [label="Monitoring App (React Native)"]; ext [label="Tenant systems (REST)"]; }
+
+  api [label="Campaign API — Node.js + Express (TypeScript), stateless, behind HTTPS load balancer\nJWT → tenantId  ·  per-tenant rate limit  ·  streaming CSV  ·  returns 202", fillcolor="#EBF4FF", color="#63B3ED"];
+
+  subgraph cluster_d { label="Data — PostgreSQL (managed, e.g. Supabase)"; style="rounded,filled"; fillcolor="#FFFAF0"; color="#F6E05E";
+    st [label="Object storage\nCSV uploads · archives", shape=cylinder];
+    pg [label="PostgreSQL primary\nRLS per tenant · daily partitions\njobs table = durable queue", shape=cylinder];
+    rr [label="Read replica\ndashboards · mobile app", shape=cylinder]; }
+
+  subgraph cluster_w { label="Worker tier — Node.js processes"; style="rounded,filled"; fillcolor="#FFF5F5"; color="#FC8181";
+    fan [label="Fan-out worker\nrules · batch job creation"];
+    disp [label="Channel dispatchers\none owner per lane · token bucket\ncircuit breaker · retries"];
+    mon [label="Health monitor\nfailure-rate alerts"]; }
+
+  subgraph cluster_p { label="Providers (external)"; style="rounded,dashed"; color="#A0AEC0";
+    pe [label="Email (primary + secondary)"]; ps [label="SMS (primary + secondary)"]; pp [label="Push (APNs / FCM)"]; }
+
+
+  {web mob ext} -> api;
+  api -> st [label=" 1. CSV"];
+  api -> pg [label=" 2. campaign + recipients\n (one transaction)"];
+  rr -> api [label=" reads", style=dashed];
+  pg -> rr [style=dashed];
+  pg -> fan [label=" 3"];
+  pg -> disp [label=" 4. claim due jobs\n (fair per tenant)"];
+  pg -> mon [style=dashed];
+  disp -> pe [label=" 5"]; disp -> ps; disp -> pp;
+  mon -> pp [label=" on-call alert", style=dotted];
+  {rank=same; st; pg; rr;}
+  {rank=same; fan; disp; mon;}
+}
