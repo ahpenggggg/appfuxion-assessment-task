@@ -4,7 +4,7 @@ import { fetchCampaign } from '@core/api/client';
 import { sqliteCampaignCache } from '@core/db/repositories';
 import { classify } from '@core/health';
 import { config } from '@core/config';
-import { useHealthStore } from '../store/healthStore';
+import { selectIsOffline, useHealthStore } from '../store/healthStore';
 import { useFocusedPolling } from './usePolling';
 
 export function useCampaignDetailViewModel(id: string) {
@@ -19,11 +19,12 @@ export function useCampaignDetailViewModel(id: string) {
   }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useFocusedPolling(async () => {
-    if (useHealthStore.getState().isOffline) return;
+    if (useHealthStore.getState().deviceOffline) return;
     try {
       const { data, serverTime } = await fetchCampaign(id);
       setCampaign(data);
       setError(null);
+      useHealthStore.setState({ serverUnreachable: false });
       sqliteCampaignCache.upsert(data, serverTime).catch(() => {});
     } catch (e) {
       const kind = (e as { kind?: string }).kind;
@@ -37,6 +38,6 @@ export function useCampaignDetailViewModel(id: string) {
     health: campaign ? classify(campaign) : null,
     error,
     notFound,
-    isOffline: useHealthStore((s) => s.isOffline),
+    isOffline: useHealthStore(selectIsOffline),
   };
 }

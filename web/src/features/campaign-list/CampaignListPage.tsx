@@ -5,7 +5,7 @@ import { useCampaignListStore } from './store';
 import { usePolling } from '@/lib/usePolling';
 import { failureRate, fmtDateTime, fmtNumber, fmtPercent } from '@/lib/format';
 import { Button, Card, ChannelBadge, EmptyState, ErrorState, LiveIndicator, ProgressBar, Skeleton, StatusBadge } from '@/components/ui';
-import { inputClass } from '@/components/classes';
+import { inputClass, selectClass } from '@/components/classes';
 
 const PAGE_SIZE = 10;
 const POLL_MS = 5000;
@@ -72,15 +72,15 @@ export default function CampaignListPage() {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <select aria-label="Tenant" className={inputClass} value={query.tenantId} onChange={(e) => update({ tenantId: e.target.value })}>
+          <select aria-label="Tenant" className={selectClass} value={query.tenantId} onChange={(e) => update({ tenantId: e.target.value })}>
             <option value="">All tenants</option>
             {tenants.map((t) => <option key={t} value={t}>{t}</option>)}
           </select>
-          <select aria-label="Channel" className={inputClass} value={query.channel ?? ''} onChange={(e) => update({ channel: (e.target.value as Channel) || undefined })}>
+          <select aria-label="Channel" className={selectClass} value={query.channel ?? ''} onChange={(e) => update({ channel: (e.target.value as Channel) || undefined })}>
             <option value="">All channels</option>
             {CHANNELS.map((c) => <option key={c}>{c}</option>)}
           </select>
-          <select aria-label="Status" className={inputClass} value={query.status ?? ''} onChange={(e) => update({ status: (e.target.value as CampaignStatus) || undefined })}>
+          <select aria-label="Status" className={selectClass} value={query.status ?? ''} onChange={(e) => update({ status: (e.target.value as CampaignStatus) || undefined })}>
             <option value="">All statuses</option>
             {CAMPAIGN_STATUSES.map((s) => <option key={s}>{s}</option>)}
           </select>

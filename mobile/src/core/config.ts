@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 
 // Android emulators reach the host via 10.0.2.2; a physical device needs the host's LAN IP.
-const DEFAULT_API_URL = Platform.select({ android: 'http://10.0.2.2:4000', default: 'http://localhost:4000' });
+const DEFAULT_API_URL = Platform.select({ android: 'http://localhost:4000', default: 'http://localhost:4000' });
 
 export const config = {
   apiUrl: DEFAULT_API_URL,

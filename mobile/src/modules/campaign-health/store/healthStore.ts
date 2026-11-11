@@ -12,11 +12,15 @@ interface HealthState {
   syncing: boolean;
   error: string | null;
   consecutiveFailures: number;
-  isOffline: boolean;
+  deviceOffline: boolean;
+  serverUnreachable: boolean;
   hydrate: () => Promise<void>;
   sync: () => Promise<void>;
-  setOffline: (offline: boolean) => void;
+  setDeviceOffline: (offline: boolean) => void;
 }
+
+export const selectIsOffline = (s: Pick<HealthState, 'deviceOffline' | 'serverUnreachable'>) =>
+  s.deviceOffline || s.serverUnreachable;
 
 export const useHealthStore = create<HealthState>((set, get) => ({
   campaigns: [],
@@ -26,7 +30,8 @@ export const useHealthStore = create<HealthState>((set, get) => ({
   syncing: false,
   error: null,
   consecutiveFailures: 0,
-  isOffline: false,
+  deviceOffline: false,
+  serverUnreachable: false,
 
   hydrate: async () => {
     if (get().hydrated) return;
@@ -42,18 +47,22 @@ export const useHealthStore = create<HealthState>((set, get) => ({
   },
 
   sync: async () => {
-    if (get().syncing) return;
+    if (get().syncing || get().deviceOffline) return;
     set({ syncing: true });
     try {
       const { items, serverTime } = await syncActiveCampaigns();
-      set({ campaigns: items, lastSyncedAt: serverTime, clockOffsetMs: serverTime - Date.now(), error: null, consecutiveFailures: 0, isOffline: false });
+      set({ campaigns: items, lastSyncedAt: serverTime, clockOffsetMs: serverTime - Date.now(), error: null, consecutiveFailures: 0, serverUnreachable: false });
     } catch (e) {
       const err = e instanceof ApiError ? e : new ApiError('server', String(e));
-      set((s) => ({ error: err.message, consecutiveFailures: s.consecutiveFailures + 1, isOffline: err.kind === 'offline' ? true : s.isOffline }));
+      set((s) => ({ error: err.message, consecutiveFailures: s.consecutiveFailures + 1, serverUnreachable: err.kind === 'offline' }));
     } finally {
       set({ syncing: false });
     }
   },
 
-  setOffline: (offline) => set({ isOffline: offline }),
+  setDeviceOffline: (offline) => {
+    const wasOffline = get().deviceOffline;
+    set({ deviceOffline: offline });
+    if (wasOffline && !offline) get().sync();
+  },
 }));

@@ -6,7 +6,7 @@ import { classify, sortByHealth, type Health } from '@core/health';
 import { nextPollDelay } from '@core/backoff';
 import { formatAgo } from '@core/time';
 import { NavigationService } from '@app/navigationService';
-import { useHealthStore } from '../store/healthStore';
+import { selectIsOffline, useHealthStore } from '../store/healthStore';
 import { useFocusedPolling } from './usePolling';
 
 export interface CampaignRowModel {
@@ -33,14 +33,11 @@ export function useCampaignHealthViewModel() {
   }, []);
 
   useEffect(() => NetInfo.addEventListener((state) => {
-    const offline = state.isConnected === false || state.isInternetReachable === false;
-    const wasOffline = useHealthStore.getState().isOffline;
-    useHealthStore.getState().setOffline(offline);
-    if (wasOffline && !offline) useHealthStore.getState().sync();
+    useHealthStore.getState().setDeviceOffline(state.isConnected === false);
   }), []);
 
   useFocusedPolling(
-    () => (useHealthStore.getState().isOffline ? Promise.resolve() : useHealthStore.getState().sync()),
+    () => useHealthStore.getState().sync(),
     () => nextPollDelay(useHealthStore.getState().consecutiveFailures),
   );
 
@@ -56,7 +53,7 @@ export function useCampaignHealthViewModel() {
   const lastSynced = s.lastSyncedAt ? formatAgo(s.lastSyncedAt, now + s.clockOffsetMs) : null;
 
   let banner: HealthBanner | null = null;
-  if (s.isOffline) banner = { tone: 'warning', text: lastSynced ? t('offlineSince', { ago: lastSynced }) : t('offlineNever') };
+  if (selectIsOffline(s)) banner = { tone: 'warning', text: lastSynced ? t('offlineSince', { ago: lastSynced }) : t('offlineNever') };
   else if (s.error && s.consecutiveFailures > 0) banner = { tone: 'critical', text: t('syncFailed', { message: s.error }) };
 
   const counts = {
@@ -72,10 +69,7 @@ export function useCampaignHealthViewModel() {
     loading: !s.hydrated && rows.length === 0,
     refreshing: s.syncing && s.hydrated,
     hasData: rows.length > 0,
-    onRefresh: () => {
-      if (useHealthStore.getState().isOffline) return; // banner already explains; don't spin forever
-      useHealthStore.getState().sync();
-    },
+    onRefresh: () => { useHealthStore.getState().sync(); },
     onOpen: (id: string) => NavigationService.navigate('CampaignDetail', { id }),
   };
 }
