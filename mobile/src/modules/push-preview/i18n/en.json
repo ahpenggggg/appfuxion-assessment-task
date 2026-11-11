@@ -1,0 +1,23 @@
+{
+  "title": "Push preview",
+  "subtitle": "How a message appears as a system notification",
+  "fields": {
+    "appName": "App name",
+    "title": "Title",
+    "body": "Body template",
+    "image": "Image URL (optional, rich media)",
+    "sample": "Sample value for {{firstName}}"
+  },
+  "platform": "Platform",
+  "state": "State",
+  "collapsed": "Collapsed",
+  "expanded": "Expanded",
+  "width": "Screen width",
+  "allWidths": "Compare all widths",
+  "oneWidth": "Show one width",
+  "chars": "{{count}} characters",
+  "titleCut": "Title will be cut on this width.",
+  "bodyCut": "Body needs about {{needed}} lines but only {{shown}} are shown.",
+  "missing": "No sample value for: {{names}}",
+  "allGood": "Fits without being cut."
+}

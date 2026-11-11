@@ -1,0 +1,29 @@
+{
+  "title": "Campaign health",
+  "subtitle": "{{total}} active · {{failing}} failing",
+  "lastSynced": "Last synced {{ago}}",
+  "neverSynced": "Not synced yet",
+  "offlineSince": "Offline · showing data from {{ago}}",
+  "offlineNever": "Offline · no saved data yet",
+  "syncFailed": "Couldn't refresh: {{message}} Showing the last saved data.",
+  "emptyTitle": "No active campaigns",
+  "emptyBody": "Running and scheduled campaigns appear here. Pull down to refresh.",
+  "loading": "Loading campaigns…",
+  "healthy": "HEALTHY",
+  "highFailure": "HIGH FAILURE",
+  "warmingUp": "Warming up",
+  "sent": "Sent",
+  "failed": "Failed",
+  "pending": "Pending",
+  "failureRate": "Failure rate",
+  "scheduled": "Scheduled",
+  "detail": {
+    "notFound": "This campaign no longer exists.",
+    "recipients": "Recipients",
+    "retryQueue": "Retry queue",
+    "progress": "Progress",
+    "template": "Message template",
+    "minSample": "Status is judged after {{n}} attempts.",
+    "offline": "Offline · showing saved data"
+  }
+}

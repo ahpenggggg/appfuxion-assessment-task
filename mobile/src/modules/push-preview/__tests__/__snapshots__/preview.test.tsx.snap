@@ -1,0 +1,677 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationPreview renders android collapsed consistently 1`] = `
+<View
+  style={
+    [
+      {
+        "borderRadius": 18,
+        "paddingVertical": 14,
+      },
+      {
+        "width": 390,
+      },
+      {
+        "backgroundColor": "#1F2937",
+        "paddingHorizontal": 12,
+      },
+    ]
+  }
+  testID="preview-android"
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 16,
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "gap": 6,
+          "marginBottom": 6,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#2C57D6",
+            "borderRadius": 8,
+            "height": 16,
+            "justifyContent": "center",
+            "width": 16,
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#fff",
+                "fontSize": 15,
+                "fontWeight": "700",
+              },
+              {
+                "fontSize": 9,
+              },
+            ]
+          }
+        >
+          N
+        </Text>
+      </View>
+      <Text
+        style={
+          {
+            "color": "#4B5563",
+            "flex": 1,
+            "fontSize": 12,
+          }
+        }
+      >
+        Notify
+         · 
+        now
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#6B7280",
+            "fontSize": 14,
+          }
+        }
+      >
+        ⌄
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+            }
+          }
+        >
+          <Text>
+            Sale ends tonight, 
+          </Text>
+          <Text>
+            Aisyah
+          </Text>
+          <Text>
+            !
+          </Text>
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            {
+              "color": "#4B5563",
+              "fontSize": 14,
+              "lineHeight": 19,
+              "marginTop": 2,
+            }
+          }
+        >
+          <Text>
+            Take 50% off with code 
+          </Text>
+          <Text
+            style={
+              {
+                "backgroundColor": "#FDE68A",
+                "color": "#92400E",
+              }
+            }
+          >
+            {{code}}
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+      </View>
+      <Image
+        accessibilityLabel="Notification image"
+        source={
+          {
+            "uri": "https://example.com/img.jpg",
+          }
+        }
+        style={
+          {
+            "backgroundColor": "#CBD5E1",
+            "borderRadius": 8,
+            "height": 48,
+            "marginLeft": 10,
+            "width": 48,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`NotificationPreview renders android expanded consistently 1`] = `
+<View
+  style={
+    [
+      {
+        "borderRadius": 18,
+        "paddingVertical": 14,
+      },
+      {
+        "width": 390,
+      },
+      {
+        "backgroundColor": "#1F2937",
+        "paddingHorizontal": 12,
+      },
+    ]
+  }
+  testID="preview-android"
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 16,
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "gap": 6,
+          "marginBottom": 6,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#2C57D6",
+            "borderRadius": 8,
+            "height": 16,
+            "justifyContent": "center",
+            "width": 16,
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#fff",
+                "fontSize": 15,
+                "fontWeight": "700",
+              },
+              {
+                "fontSize": 9,
+              },
+            ]
+          }
+        >
+          N
+        </Text>
+      </View>
+      <Text
+        style={
+          {
+            "color": "#4B5563",
+            "flex": 1,
+            "fontSize": 12,
+          }
+        }
+      >
+        Notify
+         · 
+        now
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#6B7280",
+            "fontSize": 14,
+          }
+        }
+      >
+        ⌃
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            {
+              "color": "#111827",
+              "fontSize": 15,
+              "fontWeight": "600",
+            }
+          }
+        >
+          <Text>
+            Sale ends tonight, 
+          </Text>
+          <Text>
+            Aisyah
+          </Text>
+          <Text>
+            !
+          </Text>
+        </Text>
+        <Text
+          numberOfLines={2}
+          style={
+            {
+              "color": "#4B5563",
+              "fontSize": 14,
+              "lineHeight": 19,
+              "marginTop": 2,
+            }
+          }
+        >
+          <Text>
+            Take 50% off with code 
+          </Text>
+          <Text
+            style={
+              {
+                "backgroundColor": "#FDE68A",
+                "color": "#92400E",
+              }
+            }
+          >
+            {{code}}
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+      </View>
+    </View>
+    <Image
+      accessibilityLabel="Notification image"
+      resizeMode="cover"
+      source={
+        {
+          "uri": "https://example.com/img.jpg",
+        }
+      }
+      style={
+        {
+          "aspectRatio": 2,
+          "backgroundColor": "#CBD5E1",
+          "borderRadius": 12,
+          "marginTop": 10,
+          "width": "100%",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`NotificationPreview renders ios collapsed consistently 1`] = `
+<View
+  style={
+    [
+      {
+        "borderRadius": 18,
+        "paddingVertical": 14,
+      },
+      {
+        "width": 390,
+      },
+      {
+        "backgroundColor": "#4B5E8C",
+        "paddingHorizontal": 16,
+      },
+    ]
+  }
+  testID="preview-ios"
+>
+  <View
+    style={
+      {
+        "backgroundColor": "rgba(245,245,247,0.95)",
+        "borderRadius": 20,
+        "overflow": "hidden",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+          "gap": 10,
+          "padding": 14,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#2C57D6",
+            "borderRadius": 9,
+            "height": 38,
+            "justifyContent": "center",
+            "width": 38,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#fff",
+              "fontSize": 15,
+              "fontWeight": "700",
+            }
+          }
+        >
+          N
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "gap": 6,
+            }
+          }
+        >
+          <Text
+            numberOfLines={1}
+            style={
+              {
+                "color": "#000",
+                "flex": 1,
+                "fontSize": 15,
+                "fontWeight": "600",
+              }
+            }
+          >
+            <Text>
+              Sale ends tonight, 
+            </Text>
+            <Text>
+              Aisyah
+            </Text>
+            <Text>
+              !
+            </Text>
+          </Text>
+          <Text
+            style={
+              {
+                "color": "#6B7280",
+                "fontSize": 13,
+              }
+            }
+          >
+            now
+          </Text>
+        </View>
+        <Text
+          numberOfLines={4}
+          style={
+            {
+              "color": "#111827",
+              "fontSize": 14,
+              "lineHeight": 19,
+              "marginTop": 1,
+            }
+          }
+        >
+          <Text>
+            Take 50% off with code 
+          </Text>
+          <Text
+            style={
+              {
+                "backgroundColor": "#FDE68A",
+                "color": "#92400E",
+              }
+            }
+          >
+            {{code}}
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+      </View>
+      <Image
+        accessibilityLabel="Notification image"
+        source={
+          {
+            "uri": "https://example.com/img.jpg",
+          }
+        }
+        style={
+          {
+            "backgroundColor": "#CBD5E1",
+            "borderRadius": 8,
+            "height": 48,
+            "marginLeft": 10,
+            "width": 48,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`NotificationPreview renders ios expanded consistently 1`] = `
+<View
+  style={
+    [
+      {
+        "borderRadius": 18,
+        "paddingVertical": 14,
+      },
+      {
+        "width": 390,
+      },
+      {
+        "backgroundColor": "#4B5E8C",
+        "paddingHorizontal": 16,
+      },
+    ]
+  }
+  testID="preview-ios"
+>
+  <View
+    style={
+      {
+        "backgroundColor": "rgba(245,245,247,0.95)",
+        "borderRadius": 20,
+        "overflow": "hidden",
+      }
+    }
+  >
+    <Image
+      accessibilityLabel="Notification image"
+      resizeMode="cover"
+      source={
+        {
+          "uri": "https://example.com/img.jpg",
+        }
+      }
+      style={
+        {
+          "aspectRatio": 1.7777777777777777,
+          "backgroundColor": "#CBD5E1",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+          "gap": 10,
+          "padding": 14,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#2C57D6",
+            "borderRadius": 9,
+            "height": 38,
+            "justifyContent": "center",
+            "width": 38,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#fff",
+              "fontSize": 15,
+              "fontWeight": "700",
+            }
+          }
+        >
+          N
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "gap": 6,
+            }
+          }
+        >
+          <Text
+            numberOfLines={3}
+            style={
+              {
+                "color": "#000",
+                "flex": 1,
+                "fontSize": 15,
+                "fontWeight": "600",
+              }
+            }
+          >
+            <Text>
+              Sale ends tonight, 
+            </Text>
+            <Text>
+              Aisyah
+            </Text>
+            <Text>
+              !
+            </Text>
+          </Text>
+          <Text
+            style={
+              {
+                "color": "#6B7280",
+                "fontSize": 13,
+              }
+            }
+          >
+            now
+          </Text>
+        </View>
+        <Text
+          numberOfLines={12}
+          style={
+            {
+              "color": "#111827",
+              "fontSize": 14,
+              "lineHeight": 19,
+              "marginTop": 1,
+            }
+          }
+        >
+          <Text>
+            Take 50% off with code 
+          </Text>
+          <Text
+            style={
+              {
+                "backgroundColor": "#FDE68A",
+                "color": "#92400E",
+              }
+            }
+          >
+            {{code}}
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

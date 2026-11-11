@@ -1,0 +1,10 @@
+{
+  "title": "Campaign Monitor is locked",
+  "body": "Unlock with Face ID, Touch ID, fingerprint or your device passcode to view tenant data.",
+  "unlock": "Unlock",
+  "prompt": "Unlock Campaign Monitor",
+  "cancelled": "Unlock was cancelled.",
+  "unavailable": "Set up a screen lock (passcode or biometrics) on this device to use the app.",
+  "error": "Couldn't verify: {{message}}",
+  "devSkip": "Skip (development build only)"
+}
