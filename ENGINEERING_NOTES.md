@@ -43,7 +43,7 @@ The rule I followed: use the stack I already work with, and add a library only w
 |---|---|---|
 | Framework | React Native 0.87, CLI (bare) workflow, New Architecture | Day-to-day stack; full control of native projects and build settings |
 | Navigation | React Navigation (native stack + bottom tabs) + a central NavigationService | Standard for React Native CLI apps |
-| Architecture | ViewModel hooks over Zustand (MVVM) | Brief asks for MVVM, MVI or Redux |
+| Architecture | ViewModel hooks over Zustand (MVVM) | Brief asks for MVVM, MVI or Redux, day-to-day stack using Zustand |
 | Styling | StyleSheet with shared theme tokens (`src/ui/theme.ts`) | No extra build-time setup; colours and spacing still come from one place |
 | Text | i18next, one namespace per module | Day-to-day stack |
 | Offline cache | op-sqlite (`@op-engineering/op-sqlite`) | Brief: local database (SQLite) for the campaign list; fast and maintained for the New Architecture |
