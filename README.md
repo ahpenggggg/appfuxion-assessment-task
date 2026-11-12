@@ -128,8 +128,6 @@ npm run typecheck && npm run lint && npm test
 | `web` | `npm test` | CSV analysis, form validation, formatting, campaign list states and filters |
 | `mobile` | `npm test` | Health rules, decoders, health store, alert decisions and re-arm, sync + offline cache, NavigationService queueing, re-lock rule, template/layout rules, preview snapshots |
 
-CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs on pushes to `main` and on pull requests, one job per package on Node 22:
-
 | Job | Steps |
 |---|---|
 | `mock-api` | typecheck, test |
@@ -138,4 +136,4 @@ CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs on pushes to `m
 
 ## AI assistance
 
-See [ENGINEERING_NOTES.md §6](ENGINEERING_NOTES.md#6-ai-assistance) and the project rules in [`CLAUDE.md`](CLAUDE.md).
+See [ENGINEERING_NOTES.md §6](ENGINEERING_NOTES.md#6-ai-assistance) 
