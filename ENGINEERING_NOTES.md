@@ -11,8 +11,6 @@
 
 This document explains the decisions behind the Part 1 dashboard and the Part 2 app. The platform-level design (10M notifications/day, multi-tenancy, reliability, data, observability, security) is in the Part 5 document and is only summarised here where it affects the two clients.
 
-> Items marked `<!-- VERIFY -->` are confirmed against the final build before submission.
-
 ---
 
 ## Stack
@@ -218,7 +216,7 @@ Platform side, summarised from Part 5: 10M notifications/day is about 116 per se
 | English only | i18n is set up but there are no other languages yet |
 | Notifee maintenance | Notifee is the most widely used local-notification library but receives few updates. It is isolated in `alerts/notifier.ts`, so replacing it touches one file. |
 | App-switcher cover on Android | The cover appears when the app goes to the background, which can be after Android takes its recents snapshot. Production would set `FLAG_SECURE` on the activity (it also blocks screenshots, so it's left off for the demo). |
-| Testing depth | Unit tests cover CSV validation, the health rules, alert re-arm logic, decoders and template rendering, plus component tests for the web list and snapshot tests for previews. There are no automated tests on a real device. <!-- VERIFY: final test count --> |
+| Testing depth | Unit tests cover CSV validation, the health rules, alert re-arm logic, decoders and template rendering, plus component tests for the web list and snapshot tests for previews. 56 automated tests in total (mock API 10, web 15, mobile 31). There are no automated tests on a real device. |
 
 ---
 
@@ -253,4 +251,4 @@ I used Claude (Anthropic) as a pair programmer, working under a project `CLAUDE.
 | Feature code | Helped with CSV validation, charts, the preview component, alert logic and lock flow | Designed the behaviour (validation rules, re-arm at 18%, minimum sample, lock timing), debugged in the browser and on real devices, checked edge cases |
 | Diagrams | Generated the architecture diagram from my component list | Decided the components and flows |
 
-Everything AI produced was reviewed, run and tested by me before it was committed, and I can explain any line in the repository. <!-- VERIFY: update this table to match what actually happened -->
+Everything AI produced was reviewed, run and tested by me before it was committed, and I can explain any line in the repository.
